@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>map demo</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        html,
+        body,
+        #container {
+            height: 100%;
+            width: 100%;
+        }
+
+        .input-card {
+            width: 18rem;
+            z-index: 170;
+        }
+
+        .input-card .btn {
+            margin-right: .8rem;
+        }
+
+        .input-card .btn:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <div class="input-card">
+        <label style="color:grey">点标记操作</label>
+        <div class="input-item">
+            <input type="button" class="btn" onclick="watchPosition()" value="刷新定位">
+            <!-- <input type="button" class="btn" onclick="updateIcon()" value="更新点标记图标"> -->
+        </div>
+        <div class="input-item">
+            <!-- <input type="button" class="btn" onclick="clearMarker()" value="删除点标记"> -->
+            <!-- <input type="button" class="btn" onclick="updateContent()" value="更新点标记内容"> -->
+        </div>
+    </div>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=4f5534505104833f201f36ed266cfe2c">
+    </script>
+    <script type="text/javascript">
+        // 默认坐标
+        var lngLat = [116.406315, 39.908775];
+        var map = new AMap.Map("container", {
+            resizeEnable: true,
+            center: [116.397428, 39.90923],
+            zoom: 14
+        });
+
+        // 当前定位位置图标
+        var cpMark = new AMap.CircleMarker({
+            center: lngLat,
+            radius: 15, //3D视图下，CircleMarker半径不要超过64px
+            strokeColor: 'white',
+            strokeWeight: 2,
+            strokeOpacity: 0.5,
+            fillColor: '#4196ff',
+            fillOpacity: 0.5,
+            zIndex: 10,
+            bubble: true,
+            cursor: 'pointer',
+            clickable: true
+        })
+
+        function geo_success(position){
+            console.log("获取定位：" + position.coords.longitude+ " " + position.coords.latitude)
+            alert(("获取定位：" + position.coords.longitude+ " " + position.coords.latitude))
+            lngLat = [position.coords.longitude, position.coords.latitude];
+            map.setCenter(lngLat);
+            showCPMark();
+        }
+
+        function geo_error(error){
+            if (error.code == 1){
+                alert("定位服务未授权，请设置。")
+            }else{
+                alert('ERROR(' + error.code + '): ' + error.message);
+            }
+            console.error('ERROR(' + error.code + '): ' + error.message)
+        }
+
+        function watchPosition() {
+            var geo_options = {
+                enableHighAccuracy: true,
+                maximumAge: 30000,
+                timeout: 27000
+            };
+
+            var wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+        }
+
+        function showCPMark() {
+            cpMark.setCenter(lngLat);
+            cpMark.setMap(map);
+        }
+    </script>
+</body>
+
+</html>

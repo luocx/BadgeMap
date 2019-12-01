@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Badeg Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/client.css" />
+  <script src="./js/index.js"></script>
+</head>
+
+<body>
+  <div class="box-wrap">
+    <div id="box" class="box">
+      <div class="screen-wrap">
+        <div class="screen">
+          <div id="container" class=""></div>
+        </div>
+      </div>
+      <div class="pane-wrap">
+        <div class="tool-pane">
+          <div id="switch" class="spin-button">
+            <div class="spin-body">
+              <div class="spin-wrap"></div>
+              <span class="top-text">OFF</span>
+              <span class="bottom-text">ON</span>
+            </div>
+          </div>
+          <div id="ns" class="spin-button">
+            <div class="spin-body">
+              <div class="spin-wrap"></div>
+              <span class="bottom-text">N S</span>
+            </div>
+          </div>
+          <div id="ew" class="spin-button">
+            <div class="spin-body">
+              <div class="spin-wrap"></div>
+              <span class="bottom-text">E W</span>
+            </div>
+          </div>
+          <div id="joystick" class="joystick">
+            <div class="slot"></div>
+            <div class="pole">
+              <div class="pole-left"></div>
+              <div class="pole-wrap"></div>
+            </div>
+          </div>
+          <div class="light">
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=4f5534505104833f201f36ed266cfe2c&callback=Main.init">
+  </script>
+</body>
+
+</html>

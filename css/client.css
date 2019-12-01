@@ -1,0 +1,158 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.box-wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-wrap .box{
+    width: 900px;
+    height: 800px;
+    background-color: #e393bb;
+    display: flex;
+    border: 2px solid;
+    border-radius: 15px;
+}
+
+.screen-wrap{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.screen-wrap .screen{
+    height: calc(100% - 20px);
+    border: 1px solid;
+    width: 100%;
+    margin-left: 10px;
+    padding: 5px;
+    background-color: #743b5a;
+    border-radius: 10px;
+}
+
+.screen #container{
+    height: 100%;
+    border: 1px solid;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.pane-wrap{
+    width: calc(20% * 0.88);
+    display: flex;
+    align-items: center;
+}
+
+.tool-pane{
+    width: 100%;
+    height: 100%;
+}
+
+.spin-button{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#switch .spin-body, #switch .spin-wrap{
+    background-color: #bc4950;
+}
+#ns .spin-body, #ns .spin-wrap{
+    background-color: #3a9475;
+}
+#ew .spin-body, #ew  .spin-wrap{
+    background-color: #3f6ead;
+}
+
+.spin-button .spin-body{
+    height: 50%;
+    width: 50%;
+    position: relative;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.spin-button .spin-wrap{
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 50%;
+    box-shadow: 0px 5px 10px 0px;
+}
+.top-text{
+    top: -20px;
+    position: absolute;
+}
+.bottom-text{
+    bottom: -20px;
+    position: absolute;
+}
+
+.joystick {
+    height: 30%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.slot{
+    height: 100%;
+    width: 30%;
+    border: 1px solid;
+    background: #3c3c3f;
+    border-radius: 5px;
+    box-shadow: inset -4px -4px 10px 1px;
+}
+
+.pole{
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 20%;
+    background-color: #bdbcbd;
+    border: 1px solid;
+    box-shadow: 0px 0px 15px;
+    border-radius: 35% 20% 20% 35%;
+}
+.pole-left{
+    width: 5%;
+    height: 55%;
+    top: 20%;
+    left: -3%;
+    position: absolute;
+    border-right: 1px solid #000000;
+    border-radius: 50%;
+}
+.pole-wrap{
+    width: 100%;
+    height: 85%;
+    background-color: #ebeaeb;
+    border-radius: 35% 20% 20% 35%;
+}
+.light{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.light div{
+    background-color: #bbd784;
+    height: 15px;
+    width: 70%;
+    border: 1px solid;
+    box-shadow: inset 0px 0px 5px 0px;
+}
